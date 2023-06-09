@@ -1,0 +1,1 @@
+org.springframework.test.context.ContextCustomizerFactory = com.sutherland.connect.reporting.breadcrumb.reporter.config.TestContainersSpringContextCustomizerFactory

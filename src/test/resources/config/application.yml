@@ -1,0 +1,89 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration is used for unit/integration tests.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+spring:
+  application:
+    name: ConnectBreadcrumbReporter
+  # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
+  liquibase:
+    contexts: test
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  mail:
+    host: localhost
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  messages:
+    basename: i18n/messages
+  task:
+    execution:
+      thread-name-prefix: connect-breadcrumb-reporter-task-
+      pool:
+        core-size: 1
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: connect-breadcrumb-reporter-scheduling-
+      pool:
+        size: 20
+  thymeleaf:
+    mode: HTML
+
+server:
+  port: 10344
+  address: localhost
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+jhipster:
+  clientApp:
+    name: 'connectBreadcrumbReporterApp'
+  mail:
+    from: ConnectBreadcrumbReporter@localhost.com
+    base-url: http://127.0.0.1:8080
+  logging:
+    # To test json console appender
+    use-json-format: false
+    logstash:
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+  security:
+    remember-me:
+      # security key (this key should be unique for your application, and kept secret)
+      key: 24011b0aa9e038311b85f04f276c0db7c68a2bd129a3f0bf37a1b1d9343142eb775a5b722862c1a8bc9723366146012da26c
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+management:
+  health:
+    mail:
+      enabled: false
